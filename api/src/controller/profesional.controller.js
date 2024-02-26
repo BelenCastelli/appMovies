@@ -15,7 +15,7 @@ function getProfesional(req, res){
                 respuesta = {error: false, codigo:200, message: 'No se encontraron profesionales'}
             } else {
                 console.log(data);
-                respuesta = {error: false, codigo:200, data: data}
+                respuesta = {error: false, codigo:200, message: 'Profesional encontrado', data: data}
             }
             res.json(respuesta)
         })
@@ -57,13 +57,13 @@ function postProfesional(req, res){
         name: req.body.name,
         lastName: req.body.lastName,
         age: req.body.age,
-        weight: req.body.weight,
-        height: req.body.height,
-        isRetired: req.body.isRetired,
         nationality: req.body.nationality, 
-        oscarNumber: req.body.oscarNumber,
         profession: req.body.profession, 
-        photo: req.body.photo
+        oscarNumber: req.body.oscarNumber,
+        photo: req.body.photo,
+        height: req.body.height,
+        weight: req.body.weight
+     
     }
 
     Profesional.create(profesional)
@@ -84,19 +84,17 @@ function putProfesional(req, res){
 
     let profesional = {
         name: req.body.name,
-        newName: req.body.newname,
         lastName: req.body.lastName,
         age: req.body.age,
-        weight: req.body.weight,
-        height: req.body.height,
-        isRetired: req.body.isRetired,
         nationality: req.body.nationality, 
-        oscarNumber: req.body.oscarNumber,
         profession: req.body.profession, 
-        photo: req.body.photo
-    }    
+        oscarNumber: req.body.oscarNumber,
+        photo: req.body.photo,
+        height: req.body.height,
+        weight: req.body.weight
+    }   
     
-    Profesional.updateOne({name: profesional.name},{name: profesional.newName, 
+    Profesional.updateOne({name: profesional.name},{name: profesional.name, 
                                                 lastName: profesional.lastName,
                                                 age: profesional.age,
                                                 weight: profesional.weight,
@@ -126,7 +124,7 @@ function deleteProfesional(req, res){
     .then(function(data){
         console.log(data);
         console.log('Documento eliminado');
-        respuesta = {error: false, codigo:200, data: data}
+        respuesta = {error: false, codigo:200, mensaje:'Documento eliminado', data: data}
         res.json(respuesta)
     })
     .catch(error => {

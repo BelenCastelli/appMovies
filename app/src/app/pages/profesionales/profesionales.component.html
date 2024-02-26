@@ -1,0 +1,59 @@
+<main>
+    <form>
+        <div>
+          <input type="text" id="name" name="name" placeholder="Nombre" #name>
+        </div>
+   
+        <div>
+          <input type="text" id="lastName" name="lastName" placeholder="Apellido" #lastName>
+        </div>
+        <div>
+          <input type="number" id="age" name="age" placeholder="Edad" #age>
+        </div>
+
+        <div>
+          <input type="text" id="nationality" name="nationality" placeholder="Nacionalidad" #nationality>
+        </div>
+
+        <div>
+          <input type="text" id="profession" name="profession" placeholder="Profesión" #profession>
+        </div>
+
+        <div>
+            <input type="number" id="oscarNumber" name="oscarNumber" placeholder="Número de Oscars" #oscarNumber>
+        </div>
+
+        <div>
+          <input type="text" id="photo" name="photo" placeholder="URL de la foto" #photo>
+        </div>
+
+        <div>
+        <input type="number" id="height" name="height" placeholder="Altura" #height>
+        </div>
+        <div>
+            <input type="number" id="weight" name="weight" placeholder="Peso" #weight>
+        </div>
+        <div>
+            <button type="button" class="btn btn-info" (click)="getProfesional(name.value, lastName.value)">Mostrar</button>
+            <button type="button" class="btn btn-success" (click)="postProfesional(name.value, lastName.value, age.value,nationality.value, profession.value, oscarNumber.value, photo.value, height.value, weight.value)">Crear</button>
+
+        </div>
+        <div>
+            <button type="button" class="btn btn-info" (click)="putProfesional(name.value, lastName.value, age.value,nationality.value, profession.value, oscarNumber.value, photo.value, height.value, weight.value)">Actualizar</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProfesional(name.value, lastName.value)">Eliminar</button>
+        </div>
+        <div>
+            <button type="reset" class="btn btn-success"> Limpiar Formulario</button>
+        </div>
+
+      </form>
+      
+    <section id="content">
+        <div *ngFor="let profesional of this.profesionales">
+            <app-card [profesional] ='profesional' ></app-card>
+        </div>
+        
+    </section>
+</main>
+
+

@@ -1,0 +1,23 @@
+main{
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+    height: 700px;
+
+    background-image: linear-gradient(to top, #02251f, #022a22, #032e26, #043329, #05382c, #053b2e, #063e2f, #074131, #074232, #074333, #074535, #074636);
+    padding: 50px;
+
+}
+
+#slogan{
+
+    display: flex;
+    align-items: center;
+    font-size: 38pt;
+    text-align: center;
+    color: white;
+    font-style: italic;
+}
+
+img{width: 350px;;}

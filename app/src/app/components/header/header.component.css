@@ -1,0 +1,43 @@
+nav{
+    height: 180px;
+
+    display: flex;
+    justify-content: space-around;
+    background-image: linear-gradient(to top, #02251f, #03231d, #04221c, #04201a, #041f19, #041e18, #041c17, #041b16, #031915, #031813, #021612, #021410);
+    font-family: "EB Garamond", serif;
+}
+
+img{
+    width: 350px;
+}
+
+aside, section{
+    width: 50%;
+    display: flex;
+   align-items: center;
+
+}
+aside{
+    justify-content: center;
+}
+section{
+    justify-content: flex-end;
+}
+ul{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+
+    color: whitesmoke;
+}
+.menu{
+    font-size: 20pt;;
+}
+.menu:hover{
+    color: #036c5d;
+}
+a{
+ text-decoration: none;
+ color: inherit;
+}

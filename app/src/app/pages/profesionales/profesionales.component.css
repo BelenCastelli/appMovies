@@ -1,0 +1,27 @@
+main{
+    width: 100vw;
+    display: flex; 
+
+    justify-content: center;
+
+    background-image: linear-gradient(to top, #02251f, #022a22, #032e26, #043329, #05382c, #053b2e, #063e2f, #074131, #074232, #074333, #074535, #074636);
+
+    
+}
+
+#content{
+    width: 75%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #04312a;
+
+}
+
+form{
+    padding: 50px;
+    
+}

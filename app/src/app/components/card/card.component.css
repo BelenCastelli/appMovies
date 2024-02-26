@@ -1,0 +1,22 @@
+.card{
+    width: 300px;
+    height: 600px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    background-color: rgba(255, 235, 205, 0.59);
+}
+h5{
+    text-align: center;
+}
+img{
+    border-radius: 10px;
+    width: 250px;
+}
+
+ul{
+    list-style: none;
+}

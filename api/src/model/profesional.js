@@ -28,10 +28,6 @@ const profesionalSchema = new mongoose.Schema(
             min: 1,
             required: true
         },
-        isRetired: {
-            type: Boolean,
-            required: true
-        },
         nationality: {
             type: String,
             required: true
