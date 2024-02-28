@@ -1,6 +1,6 @@
 nav{
     height: 180px;
-
+    width: 100vw;
     display: flex;
     justify-content: space-around;
     background-image: linear-gradient(to top, #02251f, #03231d, #04221c, #04201a, #041f19, #041e18, #041c17, #041b16, #031915, #031813, #021612, #021410);

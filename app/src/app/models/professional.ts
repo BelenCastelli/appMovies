@@ -9,7 +9,9 @@ export class Professional {
                 public oscarNumber?: number,
                 public photo?: string,
                 public height?: number,
-                public weight?: number){}
+                public weight?: number,
+                public nameSearch?: string,
+                public lastNameSearch?:string){}
             
         
 }

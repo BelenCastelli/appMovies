@@ -1,5 +1,20 @@
 <main>
+
     <form>
+        <h4>Formulario de Profesionales</h4>
+        <div>
+          <input type="text" id="name" name="name" placeholder="Nombre" #nameSearch>
+        </div>
+   
+        <div>
+          <input type="text" id="lastName" name="lastName" placeholder="Apellido" #lastNameSearch>
+        </div>
+        <div class="botones">
+          <button type="button" class="btn btn-info" (click)="getProfesional(nameSearch.value, lastNameSearch.value)">Mostrar</button>
+          <button type="button" class="btn btn-danger" (click)="deleteProfesional(nameSearch.value, lastNameSearch.value)">Eliminar</button>
+        </div>
+       
+
         <div>
           <input type="text" id="name" name="name" placeholder="Nombre" #name>
         </div>
@@ -8,6 +23,7 @@
           <input type="text" id="lastName" name="lastName" placeholder="Apellido" #lastName>
         </div>
         <div>
+
           <input type="number" id="age" name="age" placeholder="Edad" #age>
         </div>
 
@@ -33,15 +49,14 @@
         <div>
             <input type="number" id="weight" name="weight" placeholder="Peso" #weight>
         </div>
-        <div>
-            <button type="button" class="btn btn-info" (click)="getProfesional(name.value, lastName.value)">Mostrar</button>
+        <div class="botones">
+           
             <button type="button" class="btn btn-success" (click)="postProfesional(name.value, lastName.value, age.value,nationality.value, profession.value, oscarNumber.value, photo.value, height.value, weight.value)">Crear</button>
+            <button type="button" class="btn btn-info" (click)="putProfesional(nameSearch.value, lastNameSearch.value,  name.value, lastName.value, age.value,nationality.value, profession.value, oscarNumber.value, photo.value, height.value, weight.value)">Actualizar</button>
 
         </div>
-        <div>
-            <button type="button" class="btn btn-info" (click)="putProfesional(name.value, lastName.value, age.value,nationality.value, profession.value, oscarNumber.value, photo.value, height.value, weight.value)">Actualizar</button>
-            <button type="button" class="btn btn-danger" (click)="deleteProfesional(name.value, lastName.value)">Eliminar</button>
-        </div>
+        
+        
         <div>
             <button type="reset" class="btn btn-success"> Limpiar Formulario</button>
         </div>

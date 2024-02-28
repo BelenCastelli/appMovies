@@ -24,8 +24,11 @@ export class ProfesionalesService {
     return this.http.post(this.url, profesional)
   }
 
-  public putProfesional(profesional:Professional):Observable<object>{
-    return this.http.put(this.url, profesional)
+  public putProfesional(profesional:Object):Observable<object>{
+
+    console.log(profesional);
+    
+    return this.http.put<object>(this.url, profesional)
   }
 
   public deleteProfesional(name:string, lastName:string):Observable<object>{

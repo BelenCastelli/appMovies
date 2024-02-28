@@ -12,10 +12,10 @@ function getProfesional(req, res){
         Profesional.find({'$and': [{name: req.params.name},{lastName: req.params.lastName}]})
         .then(function(data) {
             if(data.length == 0){
-                respuesta = {error: false, codigo:200, message: 'No se encontraron profesionales'}
+                respuesta = {error: true, codigo:200, mensaje: 'No se encontraron profesionales'}
             } else {
                 console.log(data);
-                respuesta = {error: false, codigo:200, message: 'Profesional encontrado', data: data}
+                respuesta = {error: false, codigo:200, mensaje: 'Profesional encontrado', data: data}
             }
             res.json(respuesta)
         })
@@ -37,7 +37,7 @@ function getAllProfesional(req, res){
     Profesional.find()
     .then(function(data) {
         if(data.length == 0){
-            respuesta = {error: false, codigo:200, message: 'No se encontraron profesionales'}
+            respuesta = {error: true, codigo:200, mensaje: 'No se encontraron profesionales'}
         } else {
             console.log(data);
             respuesta = {error: false, codigo:200, data: data}
@@ -74,46 +74,55 @@ function postProfesional(req, res){
     })
     .catch(error => {
         console.log(error);
-        respuesta = {error: true, codigo: 500, mensaje:'Error en la validación de los datos insertados'};
+        respuesta = {error: true, codigo: 500, mensaje:'Error en la validación de los datos insertados: se requieren todos los campos'};
         res.json(respuesta);
     })
 }
 
 function putProfesional(req, res){
-    let respuesta; 
-
+    let respuesta;
     let profesional = {
         name: req.body.name,
         lastName: req.body.lastName,
         age: req.body.age,
-        nationality: req.body.nationality, 
-        profession: req.body.profession, 
+        nationality: req.body.nationality,
+        profession: req.body.profession,
         oscarNumber: req.body.oscarNumber,
         photo: req.body.photo,
         height: req.body.height,
-        weight: req.body.weight
-    }   
-    
-    Profesional.updateOne({name: profesional.name},{name: profesional.name, 
-                                                lastName: profesional.lastName,
-                                                age: profesional.age,
-                                                weight: profesional.weight,
-                                                height: profesional.height,
-                                                isRetired: profesional.isRetired, 
-                                                nationality: profesional.nationality,
-                                                oscarNumber: profesional.oscarNumber, 
-                                                profession: profesional.profession, 
-                                                photo: profesional.photo})
-    .then((data) =>{
-        console.log(data);
-        respuesta = {error: false, codigo:200, data: data}
-        res.json(respuesta)
-    })
-    .catch(error => {
-        console.log(`Error al modificar ${error}`);
-        respuesta = {error: true, codigo: 500, mensaje:'Error en la validación de los datos modificados'};
-        res.json(respuesta);
+        weight: req.body.weight,
+    };
+
+    let query = {
+        name: req.body.nameSearch,
+        lastName: req.body.lastNameSearch
+    };
+
+    let update = {
+        name: profesional.name,
+        lastName: profesional.lastName,
+        age: profesional.age,
+        nationality: profesional.nationality,
+        profession: profesional.profession,
+        oscarNumber: profesional.oscarNumber,
+        photo: profesional.photo,
+        height: profesional.height,
+        weight: profesional.weight
+    };
+    console.log(query);
+    console.log(update);
+
+    Profesional.updateOne(query, update)
+        .then((data) => {
+            console.log(data);
+            respuesta = { error: false, codigo: 200, mensaje: 'Datos modificados correctamente', data: data };
+            res.json(respuesta);
         })
+        .catch(error => {
+            console.log(`Error al modificar ${error}`);
+            respuesta = { error: true, codigo: 500, mensaje: 'Error en la validación de los datos modificados' };
+            res.json(respuesta);
+        });
 }
     
 
